@@ -4,13 +4,13 @@
 \alias{smooth_chaikin}
 \title{Chaikin's corner cutting algorithm}
 \usage{
-smooth_chaikin(x, wrap = TRUE, refinements = 3L)
+smooth_chaikin(x, wrap = FALSE, refinements = 3L)
 }
 \arguments{
 \item{x}{numeric matrix; 2-column matrix of coordinates.}
 
 \item{wrap}{logical; whether the coordinates should be wrapped at the ends,
-as for polygons and closed lines.}
+as for polygons and closed lines, to ensure a smooth edge.}
 
 \item{refinements}{integer; number of corner cutting iterations to apply.}
 }
@@ -31,7 +31,7 @@ smoothing algorithm to spatial features.
 # smooth_chaikin works on matrices of coordinates
 # use the matrix of coordinates defining a polygon as an example
 m <- jagged_polygons$geometry[[2]][[1]]
-m_smooth <- smooth_chaikin(m)
+m_smooth <- smooth_chaikin(m, wrap = TRUE)
 class(m)
 class(m_smooth)
 plot(m, type = "l", axes = FALSE, xlab = NA, ylab = NA)

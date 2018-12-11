@@ -1,3 +1,8 @@
+# smoothr 0.1.1
+
+- Fixed bug in `fill_holes()` and `drop_crumbs()` that was raising a warning 
+when `units::set_units()` was being used. 
+
 # smoothr 0.1.0
 
 - Remove holes in polygons with `fill_holes()`

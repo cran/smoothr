@@ -5,6 +5,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   error = FALSE,
   fig.align = "center",
+  out.width = "100%",
   comment = "#>"
 )
 
@@ -34,7 +35,7 @@ print(jagged_lines)
 
 ## ----guass-field, results="hide", dev="png", echo=-1--------------------------
 par(mar = c(0, 0, 0, 0))
-plot(rasterToPolygons(jagged_raster), col = NA, border = NA) # set up plot extent
+plot(rasterToPolygons(jagged_raster), col = NA, border = NA)
 plot(jagged_raster, col = heat.colors(100), legend = FALSE, add = TRUE)
 
 ## ----chaikin-polygons, echo=-1------------------------------------------------

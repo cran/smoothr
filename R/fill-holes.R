@@ -2,12 +2,12 @@
 #'
 #' Fill polygon holes that fall below a given area threshold.
 #'
-#' @param x spatial polygons from either the `sf` or `sp` packages.
+#' @inheritParams smooth
 #' @param threshold an area threshold, below which holes will be removed.
 #'   Provided either as a `units` object (see [units::set_units()]), or a
 #'   numeric threshold in the units of the coordinate reference system. If `x`
 #'   is in unprojected coordinates, a numeric threshold is assumed to be in
-#'   square meters.
+#'   square meters. A threshold of 0 will return the input polygons unchanged.
 #'
 #' @return A spatial feature, with holes filled, in the same format as the input
 #'   data.
@@ -33,10 +33,23 @@ fill_holes.sfc <- function(x, threshold) {
   if (!all(sf::st_is(x, c("POLYGON", "MULTIPOLYGON")))) {
     stop("fill_holes() only works for polygon features.")
   }
+
+  # zero threshold returns the input features unchanged
+  thresh_nounits <- as.numeric(threshold)
+  if (thresh_nounits == 0) {
+    return(x)
+  } else if (thresh_nounits < 0) {
+    stop("threshold cannont be negative")
+  }
+
   # convert threshold to crs units
-  area_units <- units::set_units(1, units(sf::st_area(x[1])), mode = "standard")
+  if (is.na(sf::st_crs(x))) {
+    area_units <- units::set_units(1, "m2")
+  } else {
+    area_units <- units::set_units(1, units(sf::st_area(x[1])),
+                                   mode = "standard")
+  }
   threshold <- units::set_units(threshold, area_units, mode = "standard")
-  stopifnot(threshold > units::set_units(0, area_units, mode = "standard"))
 
   x_crs <- sf::st_crs(x)
 
@@ -88,6 +101,20 @@ fill_holes.Spatial <- function(x, threshold) {
     return(NULL)
   }
   methods::as(clean, "Spatial")
+}
+
+#' @export
+fill_holes.SpatVector <- function(x, threshold) {
+  if (!requireNamespace("terra", quietly = TRUE)) {
+    stop("Install the terra package to process SpatVector features.")
+  }
+  warning("SpatVector objects are converted to sf objects in smoothr. ",
+          "This conversion may introduce errors and increase the time ",
+          "required to perform smoothing.")
+
+  # convert to sf object then back
+  clean <- fill_holes(sf::st_as_sf(x), threshold = threshold)
+  terra::vect(clean)
 }
 
 hole_area <- function(x, crs) {

@@ -3,7 +3,7 @@ library(sf)
 
 test_that("smooth() methods work", {
   # polygons
-  # chaking
+  # chakin
   s <- smooth(jagged_polygons, method = "chaikin")
   # change precision to fix some floating point issues on windows
   s <- st_set_precision(s, 1e6)
@@ -85,6 +85,13 @@ test_that("smooth() works for different input formats", {
   expect_equal(nrow(s_sf), length(s_sfc))
   expect_equal(nrow(s_sf), length(s_spdf))
   expect_equivalent(st_set_geometry(s_sf, NULL), s_spdf@data)
+})
+
+test_that("smooth() works for SpatVector objects", {
+  skip_if_not_installed("terra")
+  jp_terra <- terra::vect(as(jagged_polygons, "Spatial"))
+  s_terra <- expect_warning(smooth(jp_terra))
+  expect_s4_class(s_terra, "SpatVector")
 })
 
 test_that("smooth() preserves holes", {

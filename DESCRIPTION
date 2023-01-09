@@ -1,7 +1,7 @@
 Type: Package
 Package: smoothr
 Title: Smooth and Tidy Spatial Features
-Version: 0.2.2
+Version: 1.0.0
 Authors@R: 
     person(given = "Matthew",
            family = "Strimas-Mackey",
@@ -16,16 +16,16 @@ License: GPL-3
 URL: https://strimas.com/smoothr/, https://github.com/mstrimas/smoothr
 BugReports: https://github.com/mstrimas/smoothr/issues
 Depends: R (>= 3.1.2)
-Imports: methods, raster, rgeos, sf, stats, units
-Suggests: covr, knitr, lwgeom, rmarkdown, sp, terra, testthat
+Imports: sf, stats, terra, units
+Suggests: covr, knitr, lwgeom, methods, rmarkdown, sp, testthat
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 NeedsCompilation: no
-Packaged: 2021-06-22 13:33:40 UTC; mes335
+Packaged: 2023-01-09 02:14:39 UTC; mes335
 Author: Matthew Strimas-Mackey [aut, cre]
     (<https://orcid.org/0000-0001-8929-7776>)
 Maintainer: Matthew Strimas-Mackey <mstrimas@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-06-22 14:00:02 UTC
+Date/Publication: 2023-01-09 09:20:05 UTC

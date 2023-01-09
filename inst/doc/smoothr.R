@@ -11,7 +11,7 @@ knitr::opts_chunk$set(eval = run,
 )
 
 ## ----packages-----------------------------------------------------------------
-library(raster)
+library(terra)
 library(sf)
 library(units)
 library(smoothr)
@@ -36,8 +36,7 @@ print(jagged_lines)
 
 ## ----guass-field, results="hide", dev="png", echo=-1--------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
-plot(rasterToPolygons(jagged_raster), col = NA, border = NA)
-plot(jagged_raster, col = heat.colors(100), legend = FALSE, add = TRUE)
+plot(rast(jagged_raster), col = heat.colors(100), axes = FALSE)
 
 ## ----chaikin-polygons, echo=-1------------------------------------------------
 par(mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0), mfrow = c(3, 3))
@@ -140,40 +139,42 @@ plot(p_dropped, col = "black", main = "After fill_holes()")
 
 ## ----polygonize, dev="png", echo=-1-------------------------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
+# unwrap for use
+data(jagged_raster)
+jagged_raster <- rast(jagged_raster)
+
 # pres/abs map
-r <- cut(jagged_raster, breaks = c(-Inf, 0.5, Inf)) - 1
-plot(rasterToPolygons(r), col = NA, border = NA) # set up plot extent
-plot(r, col = c("white", "#4DAF4A"), legend = FALSE, add = TRUE, box = FALSE)
+r <- classify(jagged_raster, rcl = c(-Inf, 0.5, Inf)) %>% 
+  as.numeric()
+plot(r, col = c("white", "#4DAF4A"), legend = FALSE, axes = FALSE)
+
 # polygonize
-r_poly <- rasterToPolygons(r, function(x){x == 1}, dissolve = TRUE) %>% 
-  st_as_sf()
+r_poly <- as.polygons(r) %>% 
+  st_as_sf() %>% 
+  subset(value > 0)
 plot(r_poly, col = NA, border = "grey20", lwd = 1.5, add = TRUE)
 
 ## ----raster-drop, echo=-1-----------------------------------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
 r_poly_dropped <- drop_crumbs(r_poly, set_units(101, km^2))
 # plot
-plot(rasterToPolygons(r), col = NA, border = NA) # set up plot extent
-plot(r_poly_dropped, col = "#4DAF4A", border = "grey20", lwd = 1.5, add = TRUE)
+plot(r_poly_dropped, col = "#4DAF4A", border = "grey20", lwd = 1.5, main = NULL)
 
 ## ----raster-fill, echo=-1-----------------------------------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
 r_poly_filled <- fill_holes(r_poly_dropped, set_units(201, km^2))
 # plot
-plot(rasterToPolygons(r), col = NA, border = NA) # set up plot extent
-plot(r_poly_filled, col = "#4DAF4A", border = "grey20", lwd = 1.5, add = TRUE)
+plot(r_poly_filled, col = "#4DAF4A", border = "grey20", lwd = 1.5, main = NULL)
 
 ## ----smooth-raster, echo=-1---------------------------------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
 r_poly_smooth <- smooth(r_poly_filled, method = "ksmooth")
 # plot
-plot(rasterToPolygons(r), col = NA, border = NA) # set up plot extent
-plot(r_poly_smooth, col = "#4DAF4A", border = "grey20", lwd = 1.5, add = TRUE)
+plot(r_poly_smooth, col = "#4DAF4A", border = "grey20", lwd = 1.5, main = NULL)
 
 ## ----smooth-raster-more, echo=-1----------------------------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
 r_poly_smooth <- smooth(r_poly_filled, method = "ksmooth", smoothness = 2)
 # plot
-plot(rasterToPolygons(r), col = NA, border = NA) # set up plot extent
-plot(r_poly_smooth, col = "#4DAF4A", border = "grey20", lwd = 1.5, add = TRUE)
+plot(r_poly_smooth, col = "#4DAF4A", border = "grey20", lwd = 1.5, main = NULL)
 

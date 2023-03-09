@@ -1,6 +1,6 @@
-8b8920ccf11f165b7a374817ed4824f0 *DESCRIPTION
+57358f052b1f88ca1c7738b19cd6786c *DESCRIPTION
 698c323952a9eff65d5306e585fadd83 *NAMESPACE
-e0639de974570308c24f6f95e8bf3451 *NEWS.md
+666ae4ce4019f745cb6c93abf81c3d26 *NEWS.md
 11c60c51664aabdd8b41040e6aab3b43 *R/data.r
 cb240317e53fff5b7185261d243469bc *R/densify.R
 0b390842af7160ef43b3b7bf6906d919 *R/drop-crumbs.R
@@ -17,9 +17,9 @@ e5642b03bf213a4bf07c90623b5afaac *build/vignette.rds
 324fe69124091a47771d2e074be7a035 *data/jagged_lines_3d.rda
 774ed73aaea65332cee574df93ab5e0d *data/jagged_polygons.rda
 69e812b821d375f38c084f139eeba776 *data/jagged_raster.rda
-138c6b39b74d469e75da0aedad00c7a8 *inst/doc/smoothr.R
-786d77cd7cf27a227a980ac9e1ec3aec *inst/doc/smoothr.Rmd
-eebf924d1116a10e795da8a79b01e9c6 *inst/doc/smoothr.html
+66972330d16b0c8d942a67367e31be13 *inst/doc/smoothr.R
+41517f51a42d9fa79b4c2fb127a19506 *inst/doc/smoothr.Rmd
+ebe7533dde9a05bbdf4e7dd87c8a901f *inst/doc/smoothr.html
 4704e23b5d6648b6cc8e7bfaa26a24e9 *man/densify.Rd
 1d2ef629247dd37679917fc3552d3ccc *man/drop_crumbs.Rd
 cd0710f8cdc43baa8dcf6297d331e559 *man/figures/README-smooth-lines-1.png
@@ -44,4 +44,4 @@ ee4244795b684535fe570b8abef3210d *tests/testthat/test_smooth-densify.R
 93347a75eb646c6f90e5f2704c098ee7 *tests/testthat/test_smooth-ksmooth.R
 7a55728c7b49c54d41454a08ac9a8fde *tests/testthat/test_smooth-spline.R
 62081e709970f70a9ef3aff3b5d9a72f *tests/testthat/test_smooth.r
-786d77cd7cf27a227a980ac9e1ec3aec *vignettes/smoothr.Rmd
+41517f51a42d9fa79b4c2fb127a19506 *vignettes/smoothr.Rmd

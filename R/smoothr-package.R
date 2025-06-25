@@ -4,7 +4,9 @@
 #' make them more aesthetically pleasing. Smooth curves, fill holes, and remove
 #' small fragments from lines and polygons.
 #'
-#' @name smoothr
-#' @docType package
-#' @importClassesFrom terra SpatRaster
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL

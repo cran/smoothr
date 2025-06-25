@@ -1,3 +1,15 @@
+# smoothr 1.1.0
+
+- Efficiency improvements for `drop_crumbs()`
+
+# smoothr 1.0.2
+
+- change package-level documentation as per roxygen2 suggestions
+
+# smoothr 1.0.1
+
+- Remove export of `SpatRaster` class so smoothr works with older versions of Raster
+
 # smoothr 1.0.1
 
 - Fix error in vignette arising from development version of terra [issue #15]

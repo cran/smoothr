@@ -36,7 +36,9 @@ print(jagged_lines)
 
 ## ----guass-field, results="hide", dev="png", echo=-1--------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
-plot(rast(jagged_raster), col = heat.colors(100), axes = FALSE)
+file <- system.file("extdata", "jagged-raster.tif", package = "smoothr")
+jagged_raster <- rast(file)
+plot(jagged_raster, col = heat.colors(100), axes = FALSE)
 
 ## ----chaikin-polygons, echo=-1------------------------------------------------
 par(mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0), mfrow = c(3, 3))
@@ -139,9 +141,8 @@ plot(p_dropped, col = "black", main = "After fill_holes()")
 
 ## ----polygonize, dev="png", echo=-1-------------------------------------------
 par(mar = c(0, 0, 0, 0), mfrow = c(1, 1))
-# unwrap for use
-data(jagged_raster)
-jagged_raster <- rast(jagged_raster)
+file <- system.file("extdata", "jagged-raster.tif", package = "smoothr")
+jagged_raster <- rast(file)
 
 # pres/abs map
 r <- classify(jagged_raster, rcl = c(-Inf, 0.5, Inf)) %>% 

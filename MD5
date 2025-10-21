@@ -1,7 +1,7 @@
-09d5e584c79879c246631a735742d807 *DESCRIPTION
+64846b3e85b45f2b18df878c3abaa7f1 *DESCRIPTION
 57201af63b8c6962f8959a6bba5f225f *NAMESPACE
-c8d6b163a10408a438604ac28be7f006 *NEWS.md
-1e593bcf66dda5cc806907f3f2882842 *R/data.r
+c585764877f77d6e2f20ad04ebce3a0f *NEWS.md
+1d6760fd446352d700dcabc7e41d9e1b *R/data.r
 cb240317e53fff5b7185261d243469bc *R/densify.R
 3bd0d38ec8524cebce5185436629a1bd *R/drop-crumbs.R
 e35f88f16e1ec023b2c23e2e8f329c02 *R/fill-holes.R
@@ -12,14 +12,14 @@ e35f88f16e1ec023b2c23e2e8f329c02 *R/fill-holes.R
 7153da7905370857e46d4e7474140ab5 *R/smooth.R
 fff06b32e4e5d07d109bc412084e4f81 *R/smoothr-package.R
 8e5c3883c737ec648ad429a0bdf59dcd *R/utils.R
-d92f966ff73c7d6f8ef6940a96da15bd *build/vignette.rds
+45798d33696dd816c8ddc3074b7a4562 *build/vignette.rds
 6e021419b2727ae30ecbb7caf0e618a7 *data/jagged_lines.rda
 324fe69124091a47771d2e074be7a035 *data/jagged_lines_3d.rda
 774ed73aaea65332cee574df93ab5e0d *data/jagged_polygons.rda
-69e812b821d375f38c084f139eeba776 *data/jagged_raster.rda
-66972330d16b0c8d942a67367e31be13 *inst/doc/smoothr.R
-351ef81c6dac3a930d0fd194e5db0365 *inst/doc/smoothr.Rmd
-e7ce8db6316ec2766b9fa809d2d730bc *inst/doc/smoothr.html
+1b0893357c2b8800e9b60732653de181 *inst/doc/smoothr.R
+32ffd55697297b119a58edee201d73ee *inst/doc/smoothr.Rmd
+1dcd2c72af87fcd461de3fb0d95e9e99 *inst/doc/smoothr.html
+93bf3e8b620d7f174694b8e048f871e0 *inst/extdata/jagged-raster.tif
 4704e23b5d6648b6cc8e7bfaa26a24e9 *man/densify.Rd
 1d2ef629247dd37679917fc3552d3ccc *man/drop_crumbs.Rd
 644171971b6a313fb9cd0cdc0857d85a *man/figures/README-smooth-lines-1.png
@@ -29,7 +29,6 @@ c987bf1a5dedc1bbecf9c847d97d3be7 *man/figures/logo.png
 22a9b096c645bc23b4ffb3daaeabb1a4 *man/jagged_lines.Rd
 367a5084d890b7cacbc2a86c284d2e09 *man/jagged_lines_3d.Rd
 a0124a19bf084970f73a52096e0dc5fe *man/jagged_polygons.Rd
-8a75b0bb64565418987002681eb40dec *man/jagged_raster.Rd
 b83069eb3c5aa496fcecc0bd16b66cc4 *man/smooth.Rd
 05109fb751640b583863aa4006619fde *man/smooth_chaikin.Rd
 af2515a7d03fe15c4bfbd655071e6c85 *man/smooth_densify.Rd
@@ -44,4 +43,4 @@ ee4244795b684535fe570b8abef3210d *tests/testthat/test_smooth-densify.R
 93347a75eb646c6f90e5f2704c098ee7 *tests/testthat/test_smooth-ksmooth.R
 7a55728c7b49c54d41454a08ac9a8fde *tests/testthat/test_smooth-spline.R
 5ec5202449be963a244399483cc6cf8a *tests/testthat/test_smooth.r
-351ef81c6dac3a930d0fd194e5db0365 *vignettes/smoothr.Rmd
+32ffd55697297b119a58edee201d73ee *vignettes/smoothr.Rmd
